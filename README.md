@@ -2,8 +2,6 @@
 
 A responsive and feature-rich Todo List application built with vanilla JavaScript, HTML, and CSS. This application allows users to manage their tasks with filtering, sorting, and offline capabilities.
 
-![Todo List App Screenshot](https://via.placeholder.com/800x400?text=Todo+List+App)
-
 ## Features
 
 - ✅ Create, view, and mark todos as completed
