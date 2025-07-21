@@ -1,0 +1,206 @@
+/* 
+ * Todo List Component Styles
+ */
+
+#todoList {
+  margin-bottom: 1rem;
+  transition: all 0.3s ease;
+}
+
+.todo-item {
+  display: flex;
+  align-items: center;
+  padding: 0.75rem 1rem;
+  border-left: 4px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.todo-item.completed {
+  border-left-color: var(--success-color);
+  background-color: rgba(25, 135, 84, 0.05);
+}
+
+.todo-item:not(.completed) {
+  border-left-color: var(--primary-color);
+}
+
+.todo-item:hover .todo-actions {
+  opacity: 1;
+}
+
+.todo-checkbox {
+  margin-right: 1rem;
+  position: relative;
+  z-index: 2;
+}
+
+.todo-checkbox:checked::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 20px;
+  height: 20px;
+  background-color: rgba(25, 135, 84, 0.2);
+  border-radius: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  animation: checkbox-ripple 0.5s ease-out;
+}
+
+@keyframes checkbox-ripple {
+  0% {
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(3);
+    opacity: 0;
+  }
+}
+
+.todo-text {
+  flex-grow: 1;
+  margin-right: 1rem;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.todo-date {
+  font-size: 0.875rem;
+  color: #6c757d;
+  white-space: nowrap;
+  transition: all 0.3s ease;
+}
+
+.todo-actions {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+/* Empty state styling with enhanced animation */
+#emptyState {
+  transition: all 0.5s ease;
+}
+
+#emptyState i {
+  font-size: 3.5rem;
+  color: #adb5bd;
+  margin-bottom: 1.5rem;
+  transition: all 0.5s ease;
+}
+
+#emptyState:hover i {
+  transform: scale(1.1);
+  color: var(--primary-color);
+}
+
+#emptyState p {
+  transition: all 0.3s ease;
+  font-size: 1.1rem;
+}
+
+/* Loading state animation */
+#loadingState {
+  transition: all 0.5s ease;
+}
+
+#loadingState .spinner-border {
+  width: 3rem;
+  height: 3rem;
+  animation: spinner-grow 1.2s linear infinite;
+}
+
+@keyframes spinner-grow {
+  0% {
+    transform: scale(0.8);
+    opacity: 0.5;
+  }
+  50% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(0.8);
+    opacity: 0.5;
+  }
+}
+
+/* Error state styling */
+#errorState {
+  transition: all 0.3s ease;
+  transform-origin: center;
+}
+
+#errorState.show {
+  animation: shake 0.5s ease-in-out;
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+  20%, 40%, 60%, 80% { transform: translateX(5px); }
+}
+
+/* Todo list transitions */
+.todo-enter {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.todo-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.3s, transform 0.3s;
+}
+
+.todo-exit {
+  opacity: 1;
+}
+
+.todo-exit-active {
+  opacity: 0;
+  transform: translateX(-20px);
+  transition: opacity 0.3s, transform 0.3s;
+}
+
+/* Improved layout for todo items */
+.todo-item {
+  display: flex;
+  align-items: flex-start;
+}
+
+.form-check {
+  min-width: 1.5rem;
+  margin-right: 0.5rem;
+  padding-top: 0.25rem;
+}
+
+.todo-text {
+  font-size: 1rem;
+  line-height: 1.5;
+  word-break: break-word;
+  cursor: pointer;
+}
+
+.todo-item.completed .todo-text {
+  text-decoration: line-through;
+  color: #6c757d;
+  opacity: 0.8;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .todo-item {
+    padding: 0.75rem 0.5rem;
+  }
+  
+  .todo-date {
+    font-size: 0.75rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .todo-text {
+    font-size: 0.9rem;
+  }
+}

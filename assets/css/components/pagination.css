@@ -1,0 +1,81 @@
+/* 
+ * Pagination Component Styles
+ */
+
+.pagination {
+  margin-bottom: 0;
+}
+
+.pagination .page-link {
+  color: var(--primary-color);
+  border-color: #dee2e6;
+  padding: 0.5rem 0.75rem;
+  transition: all 0.15s ease-in-out;
+}
+
+.pagination .page-link:hover {
+  color: #0b5ed7;
+  background-color: #e9ecef;
+  border-color: #dee2e6;
+  transform: translateY(-1px);
+}
+
+.pagination .page-link:focus {
+  box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+}
+
+.pagination .page-item.active .page-link {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+  color: white;
+}
+
+.pagination .page-item.disabled .page-link {
+  color: #6c757d;
+  background-color: #fff;
+  border-color: #dee2e6;
+  cursor: not-allowed;
+}
+
+.pagination .page-item.disabled .page-link:hover {
+  transform: none;
+}
+
+/* Pagination animations */
+.pagination .page-item {
+  transition: all 0.15s ease-in-out;
+}
+
+.pagination .page-item:not(.disabled):not(.active):hover {
+  transform: scale(1.05);
+}
+
+/* Responsive pagination */
+@media (max-width: 768px) {
+  .pagination {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  
+  .pagination .page-link {
+    padding: 0.375rem 0.5rem;
+    font-size: 0.875rem;
+  }
+  
+  /* Hide some page numbers on small screens */
+  .pagination .page-item:not(.active):not(:first-child):not(:last-child):not(:nth-child(2)):not(:nth-last-child(2)) {
+    display: none;
+  }
+}
+
+@media (max-width: 576px) {
+  .pagination .page-link {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.75rem;
+  }
+  
+  /* Show only prev, current, next on very small screens */
+  .pagination .page-item:not(.active):not(:first-child):not(:last-child) {
+    display: none;
+  }
+}

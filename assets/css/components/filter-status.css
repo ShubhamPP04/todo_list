@@ -1,0 +1,172 @@
+/**
+ * Filter Status Component Styles
+ */
+
+#filter-status {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 1.25rem;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+  border-radius: 8px;
+  border-left: 4px solid var(--info-color);
+  background-color: rgba(13, 202, 240, 0.1);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+#filter-status.show {
+  animation: slideDown 0.4s ease forwards;
+}
+
+#filter-status.hide {
+  animation: slideUp 0.4s ease forwards;
+}
+
+#filter-status .filter-text {
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+}
+
+#filter-status .filter-text i {
+  margin-right: 8px;
+  color: var(--info-color);
+}
+
+#filter-status .filter-value {
+  font-weight: 600;
+  background-color: rgba(13, 202, 240, 0.2);
+  padding: 2px 6px;
+  border-radius: 4px;
+  margin: 0 3px;
+}
+
+#filter-status #clear-all-filters {
+  cursor: pointer;
+  transition: all 0.25s ease;
+  display: flex;
+  align-items: center;
+  color: var(--info-color);
+  font-weight: 500;
+  padding: 4px 10px;
+  border-radius: 4px;
+  background-color: rgba(13, 202, 240, 0.1);
+  border: 1px solid rgba(13, 202, 240, 0.3);
+}
+
+#filter-status #clear-all-filters:hover {
+  background-color: rgba(13, 202, 240, 0.2);
+  transform: translateY(-2px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#filter-status #clear-all-filters:active {
+  transform: translateY(0);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+#filter-status #clear-all-filters i {
+  margin-right: 5px;
+}
+
+/* Different styles for different filter types */
+#filter-status.search-filter {
+  border-left-color: var(--primary-color);
+  background-color: rgba(13, 110, 253, 0.1);
+}
+
+#filter-status.search-filter .filter-text i,
+#filter-status.search-filter #clear-all-filters {
+  color: var(--primary-color);
+}
+
+#filter-status.search-filter .filter-value {
+  background-color: rgba(13, 110, 253, 0.2);
+}
+
+#filter-status.search-filter #clear-all-filters {
+  background-color: rgba(13, 110, 253, 0.1);
+  border: 1px solid rgba(13, 110, 253, 0.3);
+}
+
+#filter-status.search-filter #clear-all-filters:hover {
+  background-color: rgba(13, 110, 253, 0.2);
+}
+
+#filter-status.date-filter {
+  border-left-color: var(--success-color);
+  background-color: rgba(25, 135, 84, 0.1);
+}
+
+#filter-status.date-filter .filter-text i,
+#filter-status.date-filter #clear-all-filters {
+  color: var(--success-color);
+}
+
+#filter-status.date-filter .filter-value {
+  background-color: rgba(25, 135, 84, 0.2);
+}
+
+#filter-status.date-filter #clear-all-filters {
+  background-color: rgba(25, 135, 84, 0.1);
+  border: 1px solid rgba(25, 135, 84, 0.3);
+}
+
+#filter-status.date-filter #clear-all-filters:hover {
+  background-color: rgba(25, 135, 84, 0.2);
+}
+
+/* Animation keyframes */
+@keyframes slideDown {
+  from { 
+    opacity: 0;
+    transform: translateY(-15px);
+  }
+  to { 
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUp {
+  from { 
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to { 
+    opacity: 0;
+    transform: translateY(-15px);
+  }
+}
+
+/* Pulse animation for new filters */
+@keyframes filter-pulse {
+  0% { box-shadow: 0 0 0 0 rgba(13, 202, 240, 0.7); }
+  70% { box-shadow: 0 0 0 10px rgba(13, 202, 240, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(13, 202, 240, 0); }
+}
+
+#filter-status.new-filter {
+  animation: slideDown 0.4s ease forwards, filter-pulse 1.5s ease-out;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  #filter-status {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  #filter-status #clear-all-filters {
+    margin-top: 0.5rem;
+    align-self: flex-end;
+  }
+}
+
+@media (max-width: 576px) {
+  #filter-status {
+    padding: 0.6rem 1rem;
+    font-size: 0.85rem;
+  }
+}

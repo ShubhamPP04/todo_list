@@ -1,0 +1,398 @@
+/* 
+ * Todo List App - Main CSS
+ * Global styles and custom Bootstrap overrides
+ */
+
+/* Global Variables */
+:root {
+  --primary-color: #0d6efd;
+  --secondary-color: #f8f9fa;
+  --success-color: #198754;
+  --danger-color: #dc3545;
+  --warning-color: #ffc107;
+  --info-color: #0dcaf0;
+  --text-color: #212529;
+  --light-gray: #e9ecef;
+  --border-radius: 0.375rem;
+}
+
+/* Global Styles */
+body {
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  color: var(--text-color);
+  background-color: #f9f9f9;
+}
+
+.container {
+  max-width: 960px;
+}
+
+/* Header Styles */
+header h1 {
+  color: var(--primary-color);
+}
+
+/* Card Customization */
+.card {
+  border-radius: var(--border-radius);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  margin-bottom: 1.5rem;
+}
+
+.card-header {
+  font-weight: 500;
+}
+
+/* Form Customization */
+.form-control:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+}
+
+/* Button Customization */
+.btn-primary {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+.btn-primary:hover {
+  background-color: #0b5ed7;
+  border-color: #0a58ca;
+}
+
+/* Loading and Empty States */
+#loadingState, #emptyState {
+  padding: 2rem 0;
+}
+
+/* Import Component Styles */
+@import url('components/todo-list.css');
+@import url('components/todo-form.css');
+@import url('components/search-bar.css');
+@import url('components/date-filter.css');
+@import url('components/pagination.css');
+@import url('components/error-handler.css');
+@import url('components/filter-status.css');
+@import url('components/loading-animations.css');
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .card-body {
+    padding: 1rem;
+  }
+  
+  h1 {
+    font-size: 1.75rem;
+  }
+  
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  
+  /* Adjust spacing for mobile */
+  .mb-md-0 {
+    margin-bottom: 1rem !important;
+  }
+  
+  /* Make buttons more touch-friendly on mobile */
+  .btn {
+    padding: 0.5rem 0.75rem;
+    font-size: 1rem;
+  }
+  
+  /* Adjust form controls for better mobile experience */
+  .form-control, .input-group-text {
+    font-size: 1rem;
+    padding: 0.5rem 0.75rem;
+  }
+  
+  /* Hide certain elements on mobile */
+  .mobile-hidden {
+    display: none !important;
+  }
+  
+  /* Stack elements that should be side-by-side on desktop */
+  .mobile-stack {
+    flex-direction: column !important;
+  }
+  
+  .mobile-stack > * {
+    width: 100% !important;
+    margin-bottom: 0.5rem;
+  }
+  
+  /* Adjust todo items for mobile */
+  .todo-item {
+    flex-wrap: wrap;
+  }
+  
+  .todo-date {
+    width: 100%;
+    margin-top: 0.5rem;
+    margin-left: 2.5rem;
+  }
+}
+
+/* Small mobile devices */
+@media (max-width: 576px) {
+  .card-header {
+    padding: 0.75rem;
+  }
+  
+  .card-body {
+    padding: 0.75rem;
+  }
+  
+  h1 {
+    font-size: 1.5rem;
+  }
+  
+  /* Further reduce padding */
+  .container {
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+  }
+  
+  /* Make form elements full width */
+  .input-group {
+    width: 100%;
+  }
+  
+  /* Adjust pagination for very small screens */
+  .pagination .page-link {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.875rem;
+  }
+  
+  /* Hide page numbers on very small screens, keep only prev/next */
+  .pagination-number:not(.active) {
+    display: none;
+  }
+}
+
+/* Accessibility Enhancements */
+.btn:focus, .form-control:focus {
+  box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideInUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -1000px 0; }
+  100% { background-position: 1000px 0; }
+}
+
+/* Animation classes */
+.fade-in {
+  animation: fadeIn 0.3s ease-in;
+}
+
+.slide-in-up {
+  animation: slideInUp 0.4s ease-out;
+}
+
+.pulse {
+  animation: pulse 0.5s ease-in-out;
+}
+
+/* Loading state animations */
+.loading-shimmer {
+  background: linear-gradient(90deg, 
+    rgba(255,255,255,0), 
+    rgba(255,255,255,0.2), 
+    rgba(255,255,255,0));
+  background-size: 1000px 100%;
+  animation: shimmer 2s infinite linear;
+}
+
+/* Todo item styling with enhanced visual feedback */
+.todo-item {
+  transition: all 0.25s ease;
+  border-left: 4px solid transparent;
+  position: relative;
+  overflow: hidden;
+}
+
+.todo-item:hover {
+  background-color: var(--light-gray);
+  transform: translateX(3px);
+  box-shadow: 0 2px 5px rgba(0,0,0,0.08);
+}
+
+.todo-item.completed {
+  color: #6c757d;
+}
+
+.todo-item.completed .todo-text {
+  text-decoration: line-through;
+  opacity: 0.8;
+}
+
+.todo-item.just-added {
+  animation: highlight-pulse 2s ease-in-out;
+  background-color: rgba(13, 110, 253, 0.1);
+}
+
+@keyframes highlight-pulse {
+  0% { background-color: rgba(13, 110, 253, 0.3); }
+  50% { background-color: rgba(13, 110, 253, 0.1); }
+  100% { background-color: transparent; }
+}
+
+/* Custom checkbox styling with animation */
+.form-check-input {
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.form-check-input:hover {
+  transform: scale(1.1);
+}
+
+.form-check-input:checked {
+  background-color: var(--success-color);
+  border-color: var(--success-color);
+  animation: pulse 0.3s ease-in-out;
+}
+
+/* Button hover effects */
+.btn {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.btn:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Filtered dropdown button styling */
+#todoViewOptions.filtered {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+  color: white;
+}
+
+#todoViewOptions.filtered:hover {
+  background-color: #0b5ed7;
+  border-color: #0a58ca;
+}
+
+/* Active dropdown items */
+.dropdown-item.active {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+/* Mobile action bar styling */
+.fixed-bottom {
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+  background-color: rgba(255, 255, 255, 0.95) !important;
+}
+
+.fixed-bottom .btn {
+  font-size: 0.875rem;
+  padding: 0.5rem 0.25rem;
+  border-radius: 0.375rem;
+}
+
+.fixed-bottom .btn i {
+  display: block;
+  font-size: 1.1rem;
+  margin-bottom: 0.25rem;
+}
+
+/* Pulse animation for highlighted elements */
+.pulse {
+  animation: pulse-highlight 1s ease-in-out;
+}
+
+@keyframes pulse-highlight {
+  0% { 
+    box-shadow: 0 0 0 0 rgba(13, 110, 253, 0.7);
+    transform: scale(1);
+  }
+  50% { 
+    box-shadow: 0 0 0 10px rgba(13, 110, 253, 0);
+    transform: scale(1.02);
+  }
+  100% { 
+    box-shadow: 0 0 0 0 rgba(13, 110, 253, 0);
+    transform: scale(1);
+  }
+}
+
+/* Ripple effect for buttons */
+.btn::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 5px;
+  height: 5px;
+  background: rgba(255, 255, 255, 0.5);
+  opacity: 0;
+  border-radius: 100%;
+  transform: scale(1, 1) translate(-50%, -50%);
+  transform-origin: 50% 50%;
+}
+
+.btn:focus:not(:active)::after {
+  animation: ripple 1s ease-out;
+}
+
+@keyframes ripple {
+  0% {
+    transform: scale(0, 0);
+    opacity: 0.5;
+  }
+  20% {
+    transform: scale(25, 25);
+    opacity: 0.3;
+  }
+  100% {
+    opacity: 0;
+    transform: scale(40, 40);
+  }
+}/* Dr
+opdown customization */
+.dropdown-item.active,
+.dropdown-item:active {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+/* Add a subtle indicator for active filter state */
+#todoViewOptions.filtered {
+  background-color: rgba(13, 110, 253, 0.1);
+  border-color: var(--primary-color);
+}

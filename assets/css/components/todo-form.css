@@ -1,0 +1,73 @@
+/* 
+ * Todo Form Component Styles
+ */
+
+#todoForm {
+  position: relative;
+}
+
+#todoForm .form-control:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+}
+
+#todoForm .form-check-input:checked {
+  background-color: var(--success-color);
+  border-color: var(--success-color);
+}
+
+#todoForm .btn-primary {
+  position: relative;
+  overflow: hidden;
+}
+
+#todoForm .btn-primary:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+#todoForm .spinner-border-sm {
+  width: 1rem;
+  height: 1rem;
+  margin-right: 0.5rem;
+}
+
+/* Form validation styles */
+#todoForm .is-valid {
+  border-color: var(--success-color);
+}
+
+#todoForm .is-invalid {
+  border-color: var(--danger-color);
+}
+
+#todoForm .invalid-feedback {
+  display: block;
+  width: 100%;
+  margin-top: 0.25rem;
+  font-size: 0.875em;
+  color: var(--danger-color);
+}
+
+/* Form animations */
+#todoForm .form-control {
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+#todoForm .btn {
+  transition: all 0.15s ease-in-out;
+}
+
+/* Error alert styling */
+#todoForm .alert-danger {
+  margin-top: 1rem;
+  border-radius: 0.375rem;
+  position: relative;
+  padding-right: 3rem;
+}
+
+#todoForm .alert-danger .btn-close {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+}

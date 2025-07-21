@@ -1,0 +1,89 @@
+/* 
+ * Date Filter Component Styles
+ */
+
+.date-filter {
+  position: relative;
+}
+
+.date-filter .input-group-text {
+  background-color: var(--light-gray);
+  border-color: #ced4da;
+  color: #6c757d;
+  font-weight: 500;
+  min-width: 60px;
+  justify-content: center;
+}
+
+.date-filter .form-control[type="date"] {
+  border-left: none;
+}
+
+.date-filter .form-control[type="date"]:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+}
+
+.date-filter .btn-outline-secondary {
+  border-color: #ced4da;
+  color: #6c757d;
+}
+
+.date-filter .btn-outline-secondary:hover {
+  background-color: var(--secondary-color);
+  border-color: #adb5bd;
+  color: #495057;
+}
+
+/* Validation styles */
+.date-filter .is-invalid {
+  border-color: var(--danger-color);
+}
+
+.date-filter .invalid-feedback {
+  display: block;
+  width: 100%;
+  margin-top: 0.25rem;
+  font-size: 0.875em;
+  color: var(--danger-color);
+}
+
+/* Error alert */
+#date-filter-error {
+  animation: shake 0.5s ease-in-out;
+  border-left: 4px solid var(--danger-color);
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  10%, 30%, 50%, 70%, 90% { transform: translateX(-3px); }
+  20%, 40%, 60%, 80% { transform: translateX(3px); }
+}
+
+/* Date input styling improvements */
+.date-filter input[type="date"]::-webkit-calendar-picker-indicator {
+  cursor: pointer;
+  filter: invert(0.5);
+}
+
+.date-filter input[type="date"]::-webkit-calendar-picker-indicator:hover {
+  filter: invert(0.3);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .date-filter .row {
+    margin: 0;
+  }
+  
+  .date-filter .col-md-5,
+  .date-filter .col-md-2 {
+    padding: 0 0.25rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .date-filter .input-group-text {
+    min-width: 50px;
+    font-size: 0.875rem;
+  }
+}

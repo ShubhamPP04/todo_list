@@ -1,0 +1,122 @@
+/* 
+ * Error Handler Component Styles
+ */
+
+.error-container {
+  z-index: 1050;
+  pointer-events: none;
+}
+
+.error-container .toast {
+  pointer-events: auto;
+  min-width: 300px;
+  max-width: 400px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  border: none;
+}
+
+.error-container .toast.bg-danger {
+  background-color: var(--danger-color) !important;
+}
+
+.error-container .toast.bg-warning {
+  background-color: var(--warning-color) !important;
+  color: #212529;
+}
+
+.error-container .toast.bg-success {
+  background-color: var(--success-color) !important;
+}
+
+.error-container .toast-header {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 0.75rem 1rem;
+}
+
+.error-container .toast-body {
+  padding: 1rem;
+  line-height: 1.4;
+}
+
+.error-container .btn-close-white {
+  filter: invert(1) grayscale(100%) brightness(200%);
+}
+
+.error-container .btn-outline-light {
+  border-color: rgba(255, 255, 255, 0.5);
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.error-container .btn-outline-light:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.7);
+  color: white;
+}
+
+/* Toast animations */
+.error-container .toast {
+  animation: slideInRight 0.3s ease-out;
+}
+
+.error-container .toast.fade {
+  animation: slideOutRight 0.3s ease-in;
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideOutRight {
+  from {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}
+
+/* Error type icons */
+.error-container .bi-wifi-off,
+.error-container .bi-cloud-slash {
+  color: #ff6b6b;
+}
+
+.error-container .bi-clock-history {
+  color: #ffa726;
+}
+
+.error-container .bi-shield-lock {
+  color: #ef5350;
+}
+
+.error-container .bi-exclamation-triangle {
+  color: #ffca28;
+}
+
+.error-container .bi-exclamation-circle {
+  color: #42a5f5;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .error-container {
+    left: 1rem;
+    right: 1rem;
+    top: 1rem;
+  }
+  
+  .error-container .toast {
+    min-width: auto;
+    max-width: none;
+    width: 100%;
+  }
+}
